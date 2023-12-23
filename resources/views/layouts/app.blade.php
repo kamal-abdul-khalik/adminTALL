@@ -21,9 +21,12 @@
 
                     @auth
                         <!-- regular sidebar -->
-                        <div class="flex-none hidden w-full px-4 sidebar md:block md:w-60 bg-primary dark:bg-slate-900">
-                            @include('layouts.navigation')
-                        </div>
+                        <aside
+                            class="flex-none hidden w-full px-4 border-r dark:border-r-slate-900 sidebar md:block md:w-60 bg-primary dark:bg-slate-950">
+                            <div class="sticky top-0 h-screen overflow-y-auto">
+                                @include('layouts.navigation')
+                            </div>
+                        </aside>
 
                         <!--sidebar on mobile-->
                         <div x-show="sidebarOpen" class="min-w-full px-4 sidebar bg-primary dark:bg-slate-900 md:hidden">
@@ -31,7 +34,7 @@
                         </div>
                     @endauth
 
-                    <div id="main" class="w-full bg-gray-100 dark:bg-slate-800">
+                    <main id="main" class="w-full bg-gray-100 dark:bg-slate-950">
 
                         @auth
                             <div class="flex justify-between px-2 py-2 mb-5 bg-white top-12 dark:bg-slate-900">
@@ -62,12 +65,13 @@
                         <div class="py-5 px-7">
                             {{ $slot ?? '' }}
                         </div>
-                    </div>
+                    </main>
 
                 </div>
 
-                <div class="flex justify-between p-5 text-xs bg-white dark:bg-slate-900 dark:text-gray-300">
-                    <div>{{ __('Copyright') }} &copy; {{ date('Y') }} {{ config('app.name') }}</div>
+                <div
+                    class="p-5 text-xs bg-white text-end dark:bg-slate-950 dark:border-t dark:border-t-slate-900 dark:text-gray-300">
+                    <div>{{ __('Made with 🩷 ') }} &copy; {{ date('Y') }} {{ config('app.name') }}</div>
                 </div>
 
             </div>

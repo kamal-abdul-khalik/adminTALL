@@ -55,9 +55,9 @@
 
     </div>
 
-    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+    <div class="relative overflow-x-auto rounded-lg shadow-md">
+        <table>
+            <thead>
                 <tr>
                     <th>{{ __('') }}</th>
                     <th>
@@ -73,17 +73,16 @@
             </thead>
             <tbody>
                 @foreach ($this->users() as $user)
-                    <tr
-                        class="dark:border-none dark:bg-slate-900/90 dark:border-slate-900 hover:bg-gray-50 dark:hover:bg-slate-800/90">
-                        <td class="px-6 py-4">
+                    <tr class="dark:hover:bg-slate-900/80 hover:bg-slate-50">
+                        <td>
                             @if (storage_exists($user->image))
                                 <img class="w-10 h-10 rounded-full" src="{{ storage_url($user->image) }}"
                                     alt="{{ $user->name }}" width="30" class="w-8 h-8 rounded-full">
                             @endif
                         </td>
-                        <td class="px-6 py-4">{{ $user->name }}</td>
-                        <td class="px-6 py-4">{{ $user->email }}</td>
-                        <td class="px-6 py-4">
+                        <td><button wire:click="sortBy('name')">{{ $user->name }}</button></td>
+                        <td><button wire:click="sortBy('email')">{{ $user->email }}</button></td>
+                        <td>
                             @if (!empty($user->invite_token))
                                 <small class="dark:text-gray-300">{{ __('Invited') }}<br>
                                     {{ $user->created_at->diffForHumans() }}</small>
@@ -91,12 +90,12 @@
                                 {{ $user->created_at !== '' ? $user->created_at->diffForHumans() : '' }}
                             @endif
                         </td>
-                        <td class="px-6 py-4">
+                        <td>
                             @foreach ($user->roles as $role)
                                 {{ $role->label }}<br>
                             @endforeach
                         </td>
-                        <td class="px-6 py-4 text-right">
+                        <td>
                             <div class="flex space-x-2">
                                 @can('view_users_profiles')
                                     <a wire:navigate href="{{ route('admin.users.show', $user) }}">{{ __('Profile') }}</a>
@@ -165,6 +164,6 @@
         </table>
     </div>
 
-    {{ $this->users()->links() }}
+    <div class="mt-6">{{ $this->users()->links() }}</div>
 
 </div>
