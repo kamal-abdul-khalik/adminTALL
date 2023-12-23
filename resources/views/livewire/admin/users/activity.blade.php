@@ -1,6 +1,10 @@
 <div>
-    <div class="card">
-        <h1>{{ __('Activity') }}</h1>
+    <div class="card card-dark">
+        <div class="card-title">
+            {{ __('Activity') }}
+            <div class="card-sub-title"></div>
+        </div>
+
 
         <div class="grid gap-4 mb-5 sm:grid-cols-1 md:grid-cols-3">
 
@@ -92,7 +96,7 @@
             </table>
         </div>
 
-        {{ $this->userlogs()->links() }}
+        <div class="mt-6 ">{{ $this->userlogs()->links() }}</div>
 
     </div>
 </div>
