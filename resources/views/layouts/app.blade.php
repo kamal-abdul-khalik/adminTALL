@@ -9,7 +9,7 @@
         @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     </head>
 
-    <body class="font-sans antialiased" x-data="{ darkMode: false }" x-init="if (!('darkMode' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    <body class="font-sans antialiased bg-slate-950" x-data="{ darkMode: false }" x-init="if (!('darkMode' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches) {
         localStorage.setItem('darkMode', JSON.stringify(true));
     }
     darkMode = JSON.parse(localStorage.getItem('darkMode'));
@@ -37,7 +37,7 @@
                     <main id="main" class="w-full bg-gray-100 dark:bg-slate-950">
 
                         @auth
-                            <div class="flex justify-between px-2 py-2 mb-5 bg-white top-12 dark:bg-slate-900">
+                            <div class="flex justify-between px-2 py-4 mb-5 bg-white top-12 dark:bg-slate-900">
 
                                 <div class="flex">
                                     <button @click.stop="sidebarOpen = !sidebarOpen"
@@ -49,14 +49,14 @@
                                         </svg>
                                     </button>
 
-                                    <livewire:admin.search />
+                                    <livewire:admin.navbar.search />
 
                                 </div>
 
-                                <div class="flex items-center gap-x-2">
-                                    <livewire:admin.toogle-theme />
-                                    <livewire:admin.notifications-menu />
-                                    <livewire:admin.help-menu />
+                                <div class="flex items-center mr-4 gap-x-2">
+                                    <livewire:admin.navbar.toogle-theme />
+                                    <livewire:admin.navbar.notifications-menu />
+                                    <livewire:admin.navbar.help-menu />
                                     <livewire:admin.users.user-menu />
                                 </div>
                             </div>

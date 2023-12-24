@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Livewire\Admin;
+namespace App\Livewire\Admin\Navbar;
 
 use Livewire\Component;
 
@@ -39,6 +39,6 @@ class Search extends Component
             }
         }
 
-        return view('livewire.admin.search');
+        return view('livewire.admin.navbar.search');
     }
 }

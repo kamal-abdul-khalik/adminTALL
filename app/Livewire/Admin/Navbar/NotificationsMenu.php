@@ -1,13 +1,10 @@
 <?php
 
-declare(strict_types=1);
-
-namespace App\Livewire\Admin;
+namespace App\Livewire\Admin\Navbar;
 
 use App\Models\Notification;
-use Illuminate\Contracts\View\View;
-use Illuminate\Database\Eloquent\Collection;
 use Livewire\Component;
+use Illuminate\Database\Eloquent\Collection;
 
 use function auth;
 use function now;
@@ -25,16 +22,16 @@ class NotificationsMenu extends Component
         $this->unseenCount = Notification::where('assigned_to_user_id', auth()->id())->where('viewed', 0)->count();
     }
 
-    public function render(): View
-    {
-        return view('livewire.admin.notifications-menu');
-    }
-
     public function open(): void
     {
         Notification::where('assigned_to_user_id', auth()->id())->where('viewed', 0)->update([
             'viewed' => 1,
             'viewed_at' => now(),
         ]);
+    }
+
+    public function render()
+    {
+        return view('livewire.admin.navbar.notifications-menu');
     }
 }

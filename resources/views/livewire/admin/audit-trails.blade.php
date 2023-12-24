@@ -96,7 +96,7 @@
             </thead>
             <tbody>
                 @foreach ($this->userlogs() as $log)
-                    <tr class="dark:hover:bg-slate-900/80 hover:bg-slate-50">
+                    <tr>
                         <td>{{ $log->user->name ?? '' }}</td>
                         <td>{{ $log->title }}</td>
                         <td>{{ $log->section }}</td>

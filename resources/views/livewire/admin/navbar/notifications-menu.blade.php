@@ -20,13 +20,13 @@
 
         <div x-show.transition="isOpen" class="fixed inset-0 z-50 overflow-hidden" aria-labelledby="slide-over-title"
             role="dialog" aria-modal="true">
-            <div class="absolute inset-0 overflow-hidden transition-opacity bg-gray-500 bg-opacity-75">
+            <div class="absolute inset-0 overflow-hidden transition-opacity bg-opacity-75 bg-slate-800">
 
                 <div class="fixed inset-y-0 right-0 flex max-w-full pl-10 sm:pl-16">
 
                     <div class="w-screen max-w-md">
                         <div
-                            class="flex flex-col h-full overflow-y-scroll bg-white shadow-xl dark:bg-gray-700 dark:text-gray-300">
+                            class="flex flex-col h-full overflow-y-scroll bg-white shadow-xl dark:bg-slate-900 dark:text-slate-300">
 
                             <div class="p-6">
                                 <div class="flex items-start justify-between">
@@ -34,7 +34,7 @@
                                         {{ __('Notifications') }}</h2>
                                     <div class="flex items-center ml-3">
                                         <button @click="isOpen = !isOpen"
-                                            class="text-gray-400 bg-white rounded-md hover:text-gray-500 focus:ring-2 focus:ring-indigo-500">
+                                            class="rounded-md bg-slate-100 dark:bg-slate-800 text-slate-400 hover:text-slate-500 focus:ring-2 focus:ring-indigo-500">
                                             <span class="sr-only">{{ __('Close panel') }}</span>
                                             <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none"
                                                 viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -46,7 +46,7 @@
                                 </div>
                             </div>
 
-                            <div class="border-b border-gray-200"></div>
+                            <div class="divider"></div>
 
                             <ul class="flex-1 overflow-y-auto divide-y divide-gray-200">
 

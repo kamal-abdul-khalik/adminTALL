@@ -31,7 +31,7 @@ thead tr {
 }
 
 thead th {
-    @apply px-4 py-3;
+    @apply px-6 py-4;
 }
 
 thead tr a {
@@ -39,11 +39,11 @@ thead tr a {
 }
 
 tbody tr {
-    @apply bg-white dark:bg-slate-900 divide-y dark:divide-slate-800  ;
+    @apply bg-white dark:bg-slate-900 divide-y dark:divide-slate-800  dark:hover:bg-slate-900/80 hover:bg-slate-50;
 }
 
 tbody td {
-    @apply px-4 py-4 border-t dark:border-t-slate-800 whitespace-nowrap text-left text-slate-700 dark:text-slate-300;
+    @apply px-6 py-4 border-t dark:border-t-slate-800 whitespace-nowrap text-left text-slate-700 dark:text-slate-300;
 }
 
 tbody td a {
@@ -52,4 +52,8 @@ tbody td a {
 
 hr {
     @apply border-t border-slate-300;
+}
+
+.divider{
+    @apply w-full h-px my-2 bg-gradient-to-r from-slate-200 dark:from-slate-800;
 }

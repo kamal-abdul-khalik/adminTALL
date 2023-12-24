@@ -73,7 +73,7 @@
             </thead>
             <tbody>
                 @foreach ($this->users() as $user)
-                    <tr class="dark:hover:bg-slate-900/80 hover:bg-slate-50">
+                    <tr>
                         <td>
                             @if (storage_exists($user->image))
                                 <img class="w-10 h-10 rounded-full" src="{{ storage_url($user->image) }}"

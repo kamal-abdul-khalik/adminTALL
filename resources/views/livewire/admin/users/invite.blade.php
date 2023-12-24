@@ -1,7 +1,7 @@
 <div>
     <x-modal>
         <x-slot name="trigger">
-            <button class="btn btn-primary" @click="on = true">{{ __('Invite User') }}</button>
+            <button class="btn btn-primary btn-sm" @click="on = true">{{ __('Invite User') }}</button>
         </x-slot>
 
         <x-slot name="title">{{ __('Invite User') }}</x-slot>
@@ -19,8 +19,9 @@
                 <p class="error">{{ $message }}</p>
             @enderror
 
-            @foreach($roles as $role)
-                <p><x-form.checkbox wire:model="rolesSelected" :label="$role->label" :wire:key="$role->name" value="{{ $role->name }}" />
+            @foreach ($roles as $role)
+                <p><x-form.checkbox wire:model="rolesSelected" :label="$role->label" :wire:key="$role->name"
+                        value="{{ $role->name }}" />
             @endforeach
 
         </x-slot>
