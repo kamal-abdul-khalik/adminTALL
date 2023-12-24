@@ -37,7 +37,7 @@
                     <main id="main" class="w-full bg-gray-100 dark:bg-slate-950">
 
                         @auth
-                            <div class="flex justify-between px-2 py-4 mb-5 bg-white top-12 dark:bg-slate-900">
+                            <div class="sticky top-0 z-50 flex justify-between px-2 py-4 mb-5 bg-white dark:bg-slate-900">
 
                                 <div class="flex">
                                     <button @click.stop="sidebarOpen = !sidebarOpen"
@@ -66,13 +66,12 @@
                             {{ $slot ?? '' }}
                         </div>
                     </main>
-
                 </div>
 
-                <div
+                {{-- <div
                     class="p-5 text-xs bg-white text-end dark:bg-slate-950 dark:border-t dark:border-t-slate-900 dark:text-gray-300">
                     <div>{{ __('Made with 🩷 ') }} &copy; {{ date('Y') }} {{ config('app.name') }}</div>
-                </div>
+                </div> --}}
 
             </div>
         </div>

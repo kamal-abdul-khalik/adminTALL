@@ -25,9 +25,9 @@
                 </div>
 
                 <div class="mt-5 text-left">
-                    <div class="flex pb-2">
+                    <div class="flex pb-2 dark:text-slate-300 text-slate-600">
                         <i class="pt-1 pr-1 fa fa-envelope"></i>
-                        <div style="width:200px; overflow: scroll">{{ $user->email }}</div>
+                        <span>{{ $user->email }}</span>
                     </div>
                 </div>
 
