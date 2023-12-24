@@ -3,11 +3,10 @@
     'name' => '',
     'id' => '',
     'placeholder' => '',
-    'label' => ''
+    'label' => '',
 ])
 
 @if ($label === 'none')
-
 @elseif ($label === '')
     @php
         //remove underscores from name
@@ -22,14 +21,20 @@
 @endif
 
 <div class="mb-5">
-    @if ($label !='none')
-        <label for='{{ $name }}' class='block mb-2 font-bold text-sm text-gray-600 dark:text-gray-200'>{{ $label }} @if ($required != '') <span class="error">*</span>@endif</label>
+    @if ($label != 'none')
+        <label for='{{ $name }}'
+            class='block mb-3 text-sm font-medium leading-5 text-gray-700 dark:text-gray-200'>{{ $label }}
+            @if ($required != '')
+                <span class="error">*</span>
+            @endif
+        </label>
     @endif
-    <select name='{{ $name }}' id='{{ $name }}' {{ $required }} {{ $attributes->merge(['class' => 'border border-gray-300 dark:bg-gray-500 dark:text-gray-200 p-1 w-full rounded']) }}>
-    @if ($placeholder != '')
-       <option value=''>{{ $placeholder }}</option>
-    @endif
-    {{ $slot }}
+    <select name='{{ $name }}' id='{{ $name }}' {{ $required }}
+        {{ $attributes->merge(['class' => 'w-full rounded-lg border border-gray-300 dark:border-slate-700 py-2 px-3 outline-0 dark:bg-slate-900 transition duration-200 focus:border-blue-300 focus:ring-4 focus:ring-indigo-100 focus:dark:ring-blue-800 dark:text-slate-300 sm:text-sm']) }}>
+        @if ($placeholder != '')
+            <option value=''>{{ $placeholder }}</option>
+        @endif
+        {{ $slot }}
     </select>
     @error($name)
         <p class="error">{{ $message }}</p>
