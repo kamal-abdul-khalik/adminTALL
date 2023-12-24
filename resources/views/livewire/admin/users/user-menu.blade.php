@@ -10,7 +10,8 @@
             </button>
         </div>
 
-        <div x-show.transition="isOpen" @click.away="isOpen = false" class="absolute right-0 w-48 mt-1 mr-3 origin-top-right">
+        <div x-transition:enter.duration.300ms x-transition:leave.duration.300ms x-show.transition="isOpen"
+            @click.away="isOpen = false" class="absolute right-0 w-48 mt-1 mr-3 origin-top-right">
             <div class="relative z-30 pb-3 bg-white border rounded-md shadow-xs dark:border-slate-800 dark:bg-slate-900">
 
                 @can('view_users_profiles')

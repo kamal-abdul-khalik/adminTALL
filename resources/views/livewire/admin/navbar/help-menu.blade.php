@@ -9,7 +9,8 @@
         </button>
     </div>
 
-    <div x-show.transition="isOpen" @click.away="isOpen = false" class="absolute w-48 origin-top-right right-14">
+    <div x-transition:enter.duration.300ms x-transition:leave.duration.300ms x-show.transition="isOpen"
+        @click.away="isOpen = false" class="absolute w-48 origin-top-right right-14">
         <div class="relative z-30 bg-white border rounded-md shadow-xs dark:border-slate-800 dark:bg-slate-900">
             <x-dropdown-link href="http://laraveladmintw.com/docs">{{ __('Theme Docs') }}</x-dropdown-link>
         </div>
