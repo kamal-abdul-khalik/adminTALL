@@ -45,8 +45,8 @@
                         <td>
                             <div class="flex space-x-2">
                                 @can('edit_roles')
-                                    <a wire:navigate
-                                        href="{{ route('admin.settings.roles.edit', ['role' => $role->id]) }}">{{ __('Edit') }}</a>
+                                    <x-alink
+                                        href="{{ route('admin.settings.roles.edit', ['role' => $role->id]) }}">{{ __('Edit') }}</x-alink>
                                 @endcan
                                 @if ($role->name !== 'admin')
                                     @can('delete_roles')

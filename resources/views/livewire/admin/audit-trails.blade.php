@@ -101,7 +101,7 @@
                         <td>{{ $log->type }}</td>
                         <td>
                             @if ($log->link !== null)
-                                <a wire:navigate href="{{ url($log->link) }}">{{ __('View') }}</a>
+                                <x-alink href="{{ url($log->link) }}">{{ __('View') }}</x-alink>
                             @endif
                         </td>
                         <td>{{ $log->created_at !== '' ? date('jS M Y H:i:s', strtotime($log->created_at)) : '' }}</td>

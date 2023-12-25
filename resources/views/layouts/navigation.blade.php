@@ -21,7 +21,8 @@
         @if (storage_exists($applicationLogo))
             <picture>
                 <source srcset="{{ storage_url($applicationLogoDark) }}" media="(prefers-color-scheme: dark)">
-                <img src="{{ storage_url($applicationLogo) }}" alt="{{ config('app.name') }}">
+                <img src="{{ storage_url($applicationLogo) }}" alt="{{ config('app.name') }}"
+                    class="object-cover w-10 h-10">
             </picture>
         @else
             {{ config('app.name') }}

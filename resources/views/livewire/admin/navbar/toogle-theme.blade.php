@@ -1,8 +1,8 @@
-<button type="button" x-bind:class="darkMode ? 'bg-indigo-500' : 'bg-gray-200'" x-on:click="darkMode = !darkMode"
+<button type="button" x-bind:class="darkMode ? 'bg-indigo-800/50' : 'bg-gray-200'" x-on:click="darkMode = !darkMode"
     class="relative inline-flex flex-shrink-0 h-6 transition-colors duration-200 ease-in-out border-2 border-transparent rounded-full cursor-pointer w-11 "
     role="switch" aria-checked="false">
     <span class="sr-only">Dark mode toggle</span>
-    <span x-bind:class="darkMode ? 'translate-x-5 bg-gray-700' : 'translate-x-0 bg-white'"
+    <span x-bind:class="darkMode ? 'translate-x-5 bg-primary' : 'translate-x-0 bg-white'"
         class="relative inline-block w-5 h-5 transition duration-200 ease-in-out transform rounded-full shadow pointer-events-none ring-0">
         <span x-bind:class="darkMode ? 'opacity-0 ease-out duration-100' : 'opacity-100 ease-in duration-200'"
             class="absolute inset-0 flex items-center justify-center w-full h-full transition-opacity" aria-hidden="true">
