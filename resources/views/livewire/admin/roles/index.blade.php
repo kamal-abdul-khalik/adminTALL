@@ -63,7 +63,7 @@
                                             </x-slot>
                                             <x-slot name="footer">
                                                 <button class="btn" @click="on = false">{{ __('Cancel') }}</button>
-                                                <button class="btn btn-red"
+                                                <button class="btn btn-danger"
                                                     wire:click="deleteRole('{{ $role->id }}')">{{ __('Delete Role') }}</button>
                                             </x-slot>
                                         </x-modal>

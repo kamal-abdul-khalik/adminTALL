@@ -1,6 +1,6 @@
 <div>
-
     <div class="card">
+        @include('errors.messages')
 
         <h3 class="mb-4">{{ __('Application Settings') }}</h3>
 
@@ -38,8 +38,5 @@
             <x-button class="mt-3 btn-primary btn-sm">{{ __('Update Application Settings') }}</x-button>
 
         </x-form>
-
-        @include('errors.messages')
-
     </div>
 </div>

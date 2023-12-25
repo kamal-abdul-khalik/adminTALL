@@ -12,18 +12,8 @@ use App\Livewire\Admin\Users\ShowUser;
 use App\Livewire\Admin\Users\Users;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
-Route::get('/', WelcomeController::class);
+Route::get('/', WelcomeController::class)->name('home');
 
 Route::prefix(config('admintw.prefix'))->middleware(['auth', 'verified', 'activeUser', 'IpCheckMiddleware'])->group(function () {
     Route::get('/', Dashboard::class)->name('dashboard');
@@ -47,4 +37,4 @@ Route::prefix(config('admintw.prefix'))->middleware(['auth', 'verified', 'active
     });
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

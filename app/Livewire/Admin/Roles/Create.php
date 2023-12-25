@@ -51,7 +51,7 @@ class Create extends Component
         flash('Role created')->success();
 
         add_user_log([
-            'title' => 'created role '.$this->role,
+            'title' => 'created role ' . $this->role,
             'link' => route('admin.settings.roles.edit', ['role' => $role->id]),
             'reference_id' => $role->id,
             'section' => 'Roles',

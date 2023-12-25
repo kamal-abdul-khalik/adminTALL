@@ -1,6 +1,7 @@
 <div>
     <div class="card">
-        <h3>{{ __('Office lockdown by IP Address') }}</h3>
+        @include('errors.messages')
+        <h4>{{ __('Office lockdown by IP Address') }}</h4>
 
         <div class="p-2 text-gray-100 rounded bg-primary">
             {{ __("When a user is set to office login only the IP's listed below will allow access.") }}
@@ -59,8 +60,5 @@
             <x-button class="mt-3 btn-primary btn-sm">{{ __('Save') }}</x-button>
 
         </x-form>
-
-        @include('errors.messages')
-
     </div>
 </div>

@@ -1,6 +1,6 @@
 <div>
     <div class="card">
-
+        @include('errors.errors')
         <h3>{{ __('Login Logo') }}</h3>
 
         <x-form wire:submit="update" method="put">
@@ -8,7 +8,7 @@
             <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
                 <div>
 
-                    <h2>{{ __('Light Mode Logo') }}</h2>
+                    <h4>{{ __('Light Mode Logo') }}</h4>
 
                     <div
                         class="flex justify-center px-6 pt-5 pb-6 mt-1 border-2 border-gray-300 border-dashed rounded-md">
@@ -43,7 +43,7 @@
                 </div>
 
                 <div>
-                    <h2>Dark Mode Logo</h2>
+                    <h4>Dark Mode Logo</h4>
 
                     <div
                         class="flex justify-center px-6 pt-5 pb-6 mt-1 border-2 border-gray-300 border-dashed rounded-md">
@@ -81,8 +81,5 @@
             <x-button class="mt-3 btn-primary btn-sm">{{ __('Save') }}</x-button>
 
         </x-form>
-
-        @include('errors.errors')
-
     </div>
 </div>

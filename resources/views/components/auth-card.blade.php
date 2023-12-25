@@ -1,5 +1,5 @@
 <div>
-    <section class="hero container max-w-screen-lg mx-auto text-center">
+    <section class="container max-w-screen-lg mx-auto text-center hero">
         @php
             //cache the logo setting to reduce calling the database
             $loginLogo = Cache::rememberForever('loginLogo', function () {
@@ -11,7 +11,7 @@
             });
         @endphp
 
-        <a href="{{ route('dashboard') }}">
+        <a wire:navigate href="{{ route('home') }}">
             @if (storage_exists($loginLogo))
                 <picture>
                     <source srcset="{{ Storage::url($loginLogoDark) }}" media="(prefers-color-scheme: dark)">

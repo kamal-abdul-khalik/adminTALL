@@ -25,7 +25,7 @@ class Edit extends Component
     protected function rules(): array
     {
         return [
-            'label' => 'required|string|unique:roles,label,'.$this->role->id,
+            'label' => 'required|string|unique:roles,label,' . $this->role->id,
         ];
     }
 
@@ -80,7 +80,7 @@ class Edit extends Component
         $this->role->save();
 
         add_user_log([
-            'title' => 'updated role '.$this->label,
+            'title' => 'updated role ' . $this->label,
             'link' => route('admin.settings.roles.edit', ['role' => $this->role->id]),
             'reference_id' => $this->role->id,
             'section' => 'Roles',
