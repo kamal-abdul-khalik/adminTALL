@@ -31,7 +31,7 @@ class RegisteredUserController extends Controller
     {
         $validated = $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:' . User::class],
             'password' => ['required', Rules\Password::defaults()],
             'confirmPassword' => 'required|same:password',
         ], [
@@ -41,20 +41,30 @@ class RegisteredUserController extends Controller
             'confirmPassword.same' => 'Confirm password and new password must match',
         ]);
 
+        // Menghitung jumlah pengguna di database
+        $userCount = User::count();
+
+        // Membuat pengguna baru
         $user = User::create([
             'name' => $validated['name'],
             'slug' => Str::slug($validated['name']),
             'email' => $validated['email'],
             'password' => bcrypt($validated['password']),
+            'email_verified_at' => $userCount == 0 ? now() : null,
             'is_active' => 1,
             'is_office_login_only' => 0,
         ]);
 
-        $user->assignRole('admin');
+
+        if ($userCount == 0) {
+            $user->assignRole('admin');
+        } else {
+            $user->assignRole('user');
+        }
 
         //generate image
         $name = get_initials($user->name);
-        $id = $user->id.'.png';
+        $id = $user->id . '.png';
         $path = 'users/';
         $imagePath = create_avatar($name, $id, $path);
 
@@ -62,16 +72,11 @@ class RegisteredUserController extends Controller
         $user->image = $imagePath;
         $user->save();
 
-        add_user_log([
-            'title' => 'registered '.$user->name,
-            'reference_id' => $user->id,
-            'section' => 'Auth',
-            'type' => 'Register',
-        ]);
+        if ($userCount > 0) {
+            $user->sendEmailVerificationNotification();
+            flash('Please check your email for a verification link.')->info();
+        }
 
-        $user->sendEmailVerificationNotification();
-        flash('Please check your email for a verification link.')->info();
-
-        return redirect()->back();
+        return redirect()->to(route('login'));
     }
 }

@@ -13,9 +13,9 @@
 
     @include('errors.messages')
 
-    <div class="px-4 py-2 my-5 text-gray-200 rounded-md bg-primary">
+    <x-notif>
         {{ __('By default only Admin have full access, additional roles will need permissions applying to them by editing the roles below.') }}
-    </div>
+    </x-notif>
 
     <div class="grid gap-4 sm:grid-cols-1 md:grid-cols-4">
 

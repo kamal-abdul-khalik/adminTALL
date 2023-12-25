@@ -30,8 +30,12 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
+        if (auth()->user()->two_fa_active == true) {
+            return redirect(route('admin.2fa'));
+        }
+
         if ($request->user()->hasRole('user')) {
-            return redirect(route('admin.users.index'));
+            return redirect(route('dashboard'));
         }
 
         return redirect()->intended(route('dashboard'));

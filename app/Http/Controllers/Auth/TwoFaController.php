@@ -19,10 +19,6 @@ class TwoFaController extends Controller
 {
     public function index(): View|RedirectResponse
     {
-        if (session('2fa-login') !== true) {
-            return redirect(route('dashboard'));
-        }
-
         return view('auth.twofa');
     }
 

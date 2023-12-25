@@ -3,10 +3,10 @@
         @include('errors.messages')
         <h4>{{ __('Office lockdown by IP Address') }}</h4>
 
-        <div class="p-2 text-gray-100 rounded bg-primary">
+        <x-notif>
             {{ __("When a user is set to office login only the IP's listed below will allow access.") }}
             {{ __('If you are not in the office you will not be able to login.') }}
-        </div>
+        </x-notif>
 
         <div class="flex items-center justify-between my-3">
             <span>{{ __('Your current IP address is') }} {{ request()->ip() }}</span>
