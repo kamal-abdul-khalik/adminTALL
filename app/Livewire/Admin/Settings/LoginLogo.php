@@ -68,38 +68,38 @@ class LoginLogo extends Component
 
         if ($this->loginLogo !== '') {
             $loginLogo = Setting::where('key', 'loginLogo')->value('value');
-            if ($loginLogo !== '') {
+            if ($loginLogo !== null) {
                 Storage::disk('public')->delete($loginLogo);
             }
 
-            $token = md5(random_int(1, 10).microtime());
-            $name = $token.'.png';
+            $token = md5(random_int(1, 10) . microtime());
+            $name = $token . '.png';
             $img = Image::make($this->loginLogo)->encode('png')->resize(300, null, function ($constraint) {
                 $constraint->aspectRatio();
             });
             $img->stream();
 
             // @phpstan-ignore-next-line
-            Storage::disk('public')->put('logo/'.$name, $img);
-            Setting::updateOrCreate(['key' => 'loginLogo'], ['value' => 'logo/'.$name]);
+            Storage::disk('public')->put('logo/' . $name, $img);
+            Setting::updateOrCreate(['key' => 'loginLogo'], ['value' => 'logo/' . $name]);
         }
 
         if ($this->loginLogoDark !== '') {
             $loginLogoDark = Setting::where('key', 'loginLogoDark')->value('value');
-            if ($loginLogoDark !== '') {
+            if ($loginLogoDark !== null) {
                 Storage::disk('public')->delete($loginLogoDark);
             }
 
-            $token = md5(random_int(1, 10).microtime());
-            $name = $token.'.png';
+            $token = md5(random_int(1, 10) . microtime());
+            $name = $token . '.png';
             $img = Image::make($this->loginLogoDark)->encode('png')->resize(300, null, function ($constraint) {
                 $constraint->aspectRatio();
             });
             $img->stream();
 
             // @phpstan-ignore-next-line
-            Storage::disk('public')->put('logo/'.$name, $img);
-            Setting::updateOrCreate(['key' => 'loginLogoDark'], ['value' => 'logo/'.$name]);
+            Storage::disk('public')->put('logo/' . $name, $img);
+            Setting::updateOrCreate(['key' => 'loginLogoDark'], ['value' => 'logo/' . $name]);
         }
 
         add_user_log([
@@ -110,6 +110,6 @@ class LoginLogo extends Component
             'type' => 'Update',
         ]);
 
-        flash('Application Logo Updated!')->success();
+        flash('Login Logo Updated!')->success();
     }
 }

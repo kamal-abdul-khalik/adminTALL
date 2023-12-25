@@ -32,7 +32,7 @@
                         </div>
                     </div>
 
-                    <div class="bg-gray-400">
+                    <div class="bg-dark">
                         @if ($applicationLogo)
                             <p>{{ __('Photo Preview') }}:</p>
                             <p><img src="{{ $applicationLogo->temporaryUrl() }}"></p>
@@ -67,7 +67,7 @@
                         </div>
                     </div>
 
-                    <div class="bg-gray-400">
+                    <div class="bg-dark">
                         @if ($applicationLogoDark)
                             <p>{{ __('Photo Preview') }}:</p>
                             <p><img src="{{ $applicationLogoDark->temporaryUrl() }}"></p>

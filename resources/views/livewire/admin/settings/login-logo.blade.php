@@ -1,7 +1,7 @@
 <div>
     <div class="card">
-        @include('errors.errors')
         <h3>{{ __('Login Logo') }}</h3>
+        @include('errors.messages')
 
         <x-form wire:submit="update" method="put">
 
