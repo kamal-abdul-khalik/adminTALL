@@ -35,9 +35,9 @@
                     @endauth
 
                     <main id="main" class="w-full bg-gray-100 dark:bg-slate-950">
-
                         @auth
                             <div class="sticky top-0 z-50 flex justify-between px-2 py-4 mb-5 bg-white dark:bg-slate-900">
+
 
                                 <div class="flex">
                                     <button @click.stop="sidebarOpen = !sidebarOpen"
@@ -62,7 +62,7 @@
                             </div>
                         @endauth
 
-                        <div class="py-5 px-7">
+                        <div class="mb-16 px-7">
                             {{ $slot ?? '' }}
                         </div>
                     </main>
