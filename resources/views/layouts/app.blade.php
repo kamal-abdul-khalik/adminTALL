@@ -37,8 +37,6 @@
                     <main id="main" class="w-full bg-gray-100 dark:bg-slate-950">
                         @auth
                             <div class="sticky top-0 z-50 flex justify-between px-2 py-4 mb-5 bg-white dark:bg-slate-900">
-
-
                                 <div class="flex">
                                     <button @click.stop="sidebarOpen = !sidebarOpen"
                                         class="pl-1 pr-2 md:hidden focus:outline-none">
@@ -49,7 +47,9 @@
                                         </svg>
                                     </button>
 
-                                    <livewire:admin.navbar.search />
+                                    <div class="pl-4">
+                                        <livewire:admin.navbar.search />
+                                    </div>
 
                                 </div>
 

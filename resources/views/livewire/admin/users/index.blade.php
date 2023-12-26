@@ -68,15 +68,15 @@
             </thead>
             <tbody>
                 @foreach ($this->users() as $user)
-                    <tr>
+                    <tr wire:key="user-row-{{ $user->id }}">
                         <td>
                             @if (storage_exists($user->image))
                                 <img class="w-10 h-10 rounded-full" src="{{ storage_url($user->image) }}"
                                     alt="{{ $user->name }}" width="30" class="w-8 h-8 rounded-full">
                             @endif
                         </td>
-                        <td><button wire:click="sortBy('name')">{{ $user->name }}</button></td>
-                        <td><button wire:click="sortBy('email')">{{ $user->email }}</button></td>
+                        <td>{{ $user->name }}</td>
+                        <td>{{ $user->email }}</td>
                         <td>
                             @if (!empty($user->invite_token))
                                 <small class="dark:text-gray-300">{{ __('Invited') }}<br>
@@ -145,8 +145,8 @@
                                         </x-slot>
 
                                         <x-slot name="footer">
-                                            <button @click="on = false">{{ __('Cancel') }}</button>
-                                            <button class="btn btn-red"
+                                            <button class="btn" @click="on = false">{{ __('Cancel') }}</button>
+                                            <button class="btn btn-danger"
                                                 wire:click="deleteUser('{{ $user->id }}')">{{ __('Delete User') }}</button>
                                         </x-slot>
                                     </x-modal>

@@ -29,8 +29,8 @@
 
 
     </div>
-    <div x-transition:enter.duration.500ms x-transition:leave.duration.300ms x-show.transition x-show="isOpen"
-        class="text-sm">
+
+    <div x-transition:enter.duration.300ms x-transition:leave.duration.300ms x-show.transition="isOpen" class="text-sm">
         {{ $slot }}
     </div>
 </div>

@@ -10,6 +10,7 @@
         <x-slot name="right">
 
             <div class="card">
+                @include('errors.messages')
                 <x-form wire:submit="update" method="put">
 
                     <div class="alert alert-info">
@@ -24,8 +25,6 @@
                         name='confirmPassword' />
 
                     <x-button>{{ __('Change Password') }}</x-button>
-
-                    @include('errors.messages')
 
                 </x-form>
             </div>

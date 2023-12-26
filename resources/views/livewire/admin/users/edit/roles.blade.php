@@ -5,17 +5,16 @@
             <p>{{ __('Turn roles on and off, disabled roles will disable the users permissions.') }}</p>
         </x-slot>
         <x-slot name="right">
-
             <div class="card">
+                @include('errors.messages')
                 <x-form wire:submit="update" method="put">
 
-                    @foreach($roles as $role)
-                        <p><input type="checkbox" wire:model="roleSelections" value="{{ $role->id }}"> {{ $role->label }}</p>
+                    @foreach ($roles as $role)
+                        <p><input type="checkbox" wire:model="roleSelections" value="{{ $role->id }}">
+                            {{ $role->label }}</p>
                     @endforeach
 
                     <x-button class="mt-5">{{ __('Update Roles') }}</x-button>
-
-                    @include('errors.messages')
 
                 </x-form>
             </div>
